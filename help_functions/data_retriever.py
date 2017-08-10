@@ -27,7 +27,7 @@ def load_reviews(reload: bool = False):
 
     data_set = __read_file(REVIEW_SOURCE)
 
-    out = (data_set[:, -1], data_set[:, 0].astype(int))
+    out = (data_set[:, -1], data_set[:, 0].astype(int), data_set[:, 1].astype(int))
 
     pickle.dump(out, open(REVIEW_DATA, 'wb'))
 

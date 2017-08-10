@@ -11,13 +11,13 @@ def transform_data(data_set):
     out = [[i for i in token_list if not i in en_stop_words] for token_list in tokens]
     return out
 
-print('Retrieve data')
+print('Retrieving data...')
 data, labels = data_retriever.load_sms()
 
-print('Format data for training')
+print('Formatting data...')
 feature_set = transform_data(data)
 
-print('Split data into training and test sets')
+print('Splitting data into training and test sets...')
 scale_test = .2
 training_data, test_data, training_labels, test_labels = data_handler.split_data(feature_set, labels, scale_test)
 
@@ -26,5 +26,5 @@ clf = DecisionTreeClassifier()
 print('Training classifier...')
 clf.fit(training_data, training_labels)
 
-print('Review of classifier')
+print('Testing classifier...')
 clf_handler.review_clf(clf, test_data, test_labels)
