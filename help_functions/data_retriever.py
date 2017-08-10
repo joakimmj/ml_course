@@ -3,9 +3,9 @@ import numpy as np
 import os
 import pickle
 
-REVIEW_SOURCE = './files/review_data/reviews.csv'
+REVIEW_SOURCE = './files/review_data/review_source.csv'
 REVIEW_DATA = './files/review_data/review_data.sav'
-SMS_SOURCE = 'files/spam_data/sms.csv'
+SMS_SOURCE = 'files/spam_data/sms_source.csv'
 SMS_DATA = 'files/spam_data/sms_data.sav'
 
 
