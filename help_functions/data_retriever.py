@@ -21,27 +21,20 @@ def __read_file(source):
     return np.array(data_set)
 
 
+def __load_file(source_location: str, save_location: str, reload: bool):
+    if os.path.exists(save_location) and not reload:
+        return pickle.load(open(save_location, 'rb'))
+
+    data_set = __read_file(source_location)
+    pickle.dump(data_set, open(save_location, 'wb'))
+    return data_set
+
+
 def load_reviews(reload: bool = False):
-    if os.path.exists(REVIEW_DATA) and not reload:
-        return pickle.load(open(REVIEW_DATA, 'rb'))
-
-    data_set = __read_file(REVIEW_SOURCE)
-
-    out = (data_set[:, -1], data_set[:, 0].astype(int), data_set[:, 1].astype(int))
-
-    pickle.dump(out, open(REVIEW_DATA, 'wb'))
-
-    return out
+    data_set = __load_file(REVIEW_SOURCE, REVIEW_DATA, reload)
+    return data_set[:, -1], data_set[:, 0].astype(int), data_set[:, 1].astype(int)
 
 
 def load_sms(reload: bool = False):
-    if os.path.exists(SMS_DATA) and not reload:
-        return pickle.load(open(SMS_DATA, 'rb'))
-
-    data_set = __read_file(SMS_SOURCE)
-
-    out = (data_set[:, -1], data_set[:, 0].astype(int))
-
-    pickle.dump(out, open(SMS_DATA, 'wb'))
-
-    return out
+    data_set = __load_file(SMS_SOURCE, SMS_DATA, reload)
+    return data_set[:, -1], data_set[:, 0].astype(int)
