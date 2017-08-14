@@ -8,7 +8,7 @@ def transform_data(data_set):
     tokenizer = RegexpTokenizer(r'\w+')
     tokens = [tokenizer.tokenize(doc.lower()) for doc in data_set]
     en_stop_words = get_stop_words('en')
-    out = [[i for i in token_list if not i in en_stop_words] for token_list in tokens]
+    out = [[i for i in token_list if i not in en_stop_words] for token_list in tokens]
     return out
 
 print('Retrieving data...')
