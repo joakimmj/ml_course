@@ -37,8 +37,7 @@ For choosing the right estimator we can use scikit's estimator chooser:
 ![Estimator picker](files/ml_map.png)
 
 ## Setup
-setup instructions
-Install python 3
+Install python 3 and scikit-learn
 
 ### Windows
 install anaconda
@@ -49,14 +48,24 @@ pip install -r requirements.txt
 ```
 
 ## Tasks
-print wrongly classified ??
-
-### Task 1
-spam filter
 > **Tip:** Use some of the linguistic morphology techniques mentioned above.
 
-### Task 2
-sentiment analysis of movie reviews
+### 1. Spam filter
+In this task we are going to classify a SMS as either spam or ham. The data set is labeled with 0 (ham) and 1 (spam).
 
-----------
+Data set:
 
+Spam     | SMS 
+-------- | ----------------------------------------------------------------------------------
+0        | Fair enough, ...
+1        | Did you hear about ...
+
+### 2. Sentiment analysis of movie reviews
+This task focus an analyzing if a movie review is positive or negative. The data set includes multiple columns. For a simple binary classifier we can use the positive/negative label, or if one wants, one can use the rating for some more specific classification. Either a multi-class classification or just to weight features depending on rating.
+
+Data set:
+
+Positive | Rating  | Review 
+-------- | ------- | -------------------------------------------------------------------------
+1        | 10      | A nicely done thriller with plenty of ...
+0        | 2       | This film just goes around in circles ... 
