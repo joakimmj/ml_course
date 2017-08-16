@@ -53,7 +53,7 @@ pip install -r requirements.txt
 ### 1. Spam filter
 In this task we are going to classify a SMS as either spam or ham. The data set is labeled with 0 (ham) and 1 (spam).
 
-Data set:
+__Data set__:
 
 Spam     | SMS 
 -------- | ----------------------------------------------------------------------------------
@@ -63,7 +63,7 @@ Spam     | SMS
 ### 2. Sentiment analysis of movie reviews
 This task focus an analyzing if a movie review is positive or negative. The data set includes multiple columns. For a simple binary classifier we can use the positive/negative label, or if one wants, one can use the rating for some more specific classification. Either a multi-class classification or just to weight features depending on rating.
 
-Data set:
+__Data set__:
 
 Positive | Rating  | Review 
 -------- | ------- | -------------------------------------------------------------------------
