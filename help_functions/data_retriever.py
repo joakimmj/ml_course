@@ -22,6 +22,8 @@ def __read_file(source):
 
 
 def __load_file(source_location: str, save_location: str, reload: bool):
+    print('Retrieving data...')
+
     if os.path.exists(save_location) and not reload:
         return pickle.load(open(save_location, 'rb'))
 
