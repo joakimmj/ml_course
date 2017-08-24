@@ -1,4 +1,6 @@
 from sklearn import metrics
+import sentiment_analysis
+import spam_filter
 from help_functions import data_retriever
 import numpy as np
 
@@ -28,29 +30,24 @@ def __validate_model(clf, training_data: iter, test_data: iter, training_labels:
     print('Classification report:\n%s\n\nConfusion matrix:\n%s\n\nF-score: %.2f\nPrecision: %.2f\nRecall: %.2f'
           % (classification_report, confusion_matrix, f1_score, precision, recall))
 
-    # for i, prediction in enumerate(predictions):
-    #     if prediction != test_labels[i]:
-    #         print('wrong!!')
-    #         print(test_data[i])
 
-    # TODO: print wrongly classified 
-
-
-def validate_spam_filter(feature_extraction, split_data_set, classifier):
+def execute_spam_filter():
+    print('-- Executing spam filter')
     data, labels = data_retriever.load_sms()
 
-    feature_set = feature_extraction(data)
-    training_data, test_data, training_labels, test_labels = split_data_set(feature_set, labels)
-    clf = classifier()
+    feature_set = spam_filter.feature_extraction(data)
+    training_data, test_data, training_labels, test_labels = spam_filter.split_data_set(feature_set, labels)
+    clf = spam_filter.classifier()
 
     __validate_model(clf, training_data, test_data, training_labels, test_labels)
 
 
-def validate_sentiment_analysis(feature_extraction, split_data_set, classifier):
+def execute_sentiment_analysis():
+    print('-- Executing sentiment analysis')
     data, labels, ratings = data_retriever.load_reviews()
 
-    feature_set = feature_extraction(data)
-    training_data, test_data, training_labels, test_labels = split_data_set(feature_set, labels, ratings)
-    clf = classifier()
+    feature_set = sentiment_analysis.feature_extraction(data)
+    training_data, test_data, training_labels, test_labels = sentiment_analysis.split_data_set(feature_set, labels, ratings)
+    clf = sentiment_analysis.classifier()
 
     __validate_model(clf, training_data, test_data, training_labels, test_labels)
