@@ -60,7 +60,7 @@ pip install -r requirements.txt
 note: you may have to install `venv` separately.
 
 ## Tasks
-Execute the `main.py` script.
+Execute the `main.py` script with `python main.py`.
 
 ### 1. Spam filter
 file: [spam_filter.py](tasks/spam_filter.py)
@@ -125,7 +125,10 @@ Positive | Rating  | Review
 0        | 2       | This film just goes around in circles ... 
 
 
-### Extra task - number classification
+## Extra tasks
+Execute the `extra.py` script with `python extra.py`.
+
+### 1. Number classification
 file: [number_classifier.py](tasks/number_classifier.py)
 
 In this extra task we want to classify bitmaps to numbers. Each bitmap is represented by a 1d-array.
