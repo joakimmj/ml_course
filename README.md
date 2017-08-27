@@ -49,10 +49,10 @@ Some of the code may require the latest version of Anaconda, so please re-instal
 
 ### Linux/MacOS
 
-####opt 1 - install anaconda
+#### opt 1 - install anaconda
 [Install Anaconda](https://docs.continuum.io/anaconda/install/).
 
-####opt 2 - install requirements
+#### opt 2 - install requirements
 ```bash
 python3 -m venv env
 pip install -r requirements.txt
