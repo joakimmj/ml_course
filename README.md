@@ -63,6 +63,8 @@ note: you may have to install `venv` separately.
 Execute the `main.py` script.
 
 ### 1. Spam filter
+file: [spam_filter.py](tasks/spam_filter.py)
+
 In this task we are going to classify a SMS as either spam or ham. The data set is labeled with 0 (ham) and 1 (spam).
 
 The task is to implement the three functions:
@@ -92,6 +94,8 @@ Spam     | SMS
 1        | Did you hear about ...
 
 ### 2. Sentiment analysis of movie reviews
+file: [sentiment_analysis.py](tasks/sentiment_analysis.py)
+
 This task focus an analyzing if a movie review is positive or negative. The data set includes multiple columns. For a simple binary classifier we can use the positive/negative label, or if one wants, one can use the rating for some more specific classification. Either a multi-class classification or just to weight features depending on rating.
 
 The task is to implement the three functions:
@@ -122,6 +126,8 @@ Positive | Rating  | Review
 
 
 ### Extra task - number classification
+file: [number_classifier.py](tasks/number_classifier.py)
+
 In this extra task we want to classify bitmaps to numbers. Each bitmap is represented by a 1d-array.
  
 The task is to implement the three functions:

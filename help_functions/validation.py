@@ -1,9 +1,7 @@
-import number_classifier
-import sentiment_analysis
-import spam_filter
 import numpy as np
-from help_functions import data_retriever, bitmap_handler
 from sklearn import metrics
+from help_functions import data_retriever, bitmap_handler
+from tasks import spam_filter, sentiment_analysis, number_classifier
 
 
 def __validate_model(clf, training_data: iter, test_data: iter, training_labels: iter, test_labels: iter,
