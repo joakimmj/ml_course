@@ -49,7 +49,7 @@ Some of the code may require the latest version of Anaconda, so please re-instal
 
 ### Linux/MacOS
 
-####opt 1 - install anaconda
+#### opt 1 - install anaconda
 
 [Install Anaconda](https://www.anaconda.com/download/#download).
 
@@ -58,14 +58,14 @@ Some of the code may require the latest version of Anaconda, so please re-instal
 python3 -m venv env
 pip install -r requirements.txt
 ```
-note: you may have to install `venv` separately.
+> **Note:** you may have to install `venv` separately.
 
 If you are using pycharm, it would now be a good idea to set the python interpreter from anaconda as the [project interpreter](https://www.jetbrains.com/help/pycharm/project-interpreter.html).
 
 ## Tasks
-> **Tip:** Use some of the linguistic morphology techniques
+Execute the `main.py` script with `python main.py`.
 
-Start with running `main.py`. If you are getting an error here like `No module named 'sklearn'`, make sure you are running it with the python install or environment we set up earlier. If it still fails go back to the setup part or get help from an instructor.
+If you are getting an error here like `No module named 'sklearn'`, make sure you are running it with the python install/environment we set up earlier. If it still fails go back to the setup part or get help from an instructor.
 
 ### 1. Spam filter
 file: [spam_filter.py](tasks/spam_filter.py)
