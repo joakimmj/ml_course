@@ -60,11 +60,17 @@ pip install -r requirements.txt
 ```
 note: you may have to install `venv` separately.
 
+If you are using pycharm, it would now be a good idea to set the python interpreter from anaconda as the [project interpreter](https://www.jetbrains.com/help/pycharm/project-interpreter.html).
+
 ## Tasks
 > **Tip:** Use some of the linguistic morphology techniques mentioned above.
 
+Start with running `main.py`. If you are getting an error here like `No module named 'sklearn'`, make sure you are running it with the python install or environment we set up earlier. If it still fails go back to the setup part or get help from an instructor.
+
 ### 1. Spam filter
 In this task we are going to classify a SMS as either spam or ham. The data set is labeled with 0 (ham) and 1 (spam).
+
+For this task you will be implementing the methods in `spam_filter.py`
 
 __Data set__:
 
@@ -75,6 +81,9 @@ Spam     | SMS
 
 ### 2. Sentiment analysis of movie reviews
 This task focus an analyzing if a movie review is positive or negative. The data set includes multiple columns. For a simple binary classifier we can use the positive/negative label, or if one wants, one can use the rating for some more specific classification. Either a multi-class classification or just to weight features depending on rating.
+
+For this task you will be implementing the methods in `sentiment_analysis.py`.
+
 
 __Data set__:
 
