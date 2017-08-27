@@ -106,21 +106,9 @@ This task focus an analyzing if a movie review is positive or negative. The data
 The task is to implement the three functions:
 ```python
 def feature_extraction(data_set: iter) -> iter:
-```
-In this function you are supposed extract the features used to train the classifier. 
-> **Tip:** Use some of the linguistic morphology techniques mentioned above.
-
-```python
 def split_data_set(data_set: iter, label_set: iter, rating_set: iter = None) -> (iter, iter, iter, iter):
-```
-Split the data set into training and test set. It is possible to use the positive/negative labels or the ratings.  
-Format the output like this: `training_data, test_data, training_labels, test_labels`
-
-```python
 def init_classifier():
 ```
-Initiate a scikit-learn estimator. 
-> **Tip:** Optimize hyper-parameters for the estimator (e.g. [GridSearch](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html#sklearn-model-selection-gridsearchcv)).
 
 __Data set__:
 
