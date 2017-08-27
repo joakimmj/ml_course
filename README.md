@@ -45,12 +45,13 @@ If you need a decent IDE for python (no IDE wars please), get the [Pycharm Commu
 
 Some of the code may require the latest version of Anaconda, so please re-install or upgrade if you are on an old version.
 ### Windows
-[Install Anaconda](https://docs.continuum.io/anaconda/install/windows.html).
+[Install Anaconda](https://www.anaconda.com/download/#download).
 
 ### Linux/MacOS
 
 ####opt 1 - install anaconda
-[Install Anaconda](https://docs.continuum.io/anaconda/install/).
+
+[Install Anaconda](https://www.anaconda.com/download/#download).
 
 ####opt 2 - install requirements
 ```bash
