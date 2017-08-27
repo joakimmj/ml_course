@@ -48,10 +48,29 @@ pip install -r requirements.txt
 ```
 
 ## Tasks
-> **Tip:** Use some of the linguistic morphology techniques mentioned above.
+Execute the `main.py` script.
 
 ### 1. Spam filter
 In this task we are going to classify a SMS as either spam or ham. The data set is labeled with 0 (ham) and 1 (spam).
+
+The task is to implement the three functions:
+```python
+def feature_extraction(data_set: iter) -> iter:
+```
+In this function you are supposed extract the features used to train the classifier. 
+> **Tip:** Use some of the linguistic morphology techniques mentioned above.
+
+```python
+def split_data_set(data_set: iter, label_set: iter) -> (iter, iter, iter, iter):
+```
+Split the data set into training and test set.  
+Format the output like this: `training_data, test_data, training_labels, test_labels`
+
+```python
+def init_classifier():
+```
+Initiate a scikit-learn estimator. 
+> **Tip:** Optimize hyper-parameters for the estimator (e.g. [GridSearch](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html#sklearn-model-selection-gridsearchcv)).
 
 __Data set__:
 
@@ -62,6 +81,25 @@ Spam     | SMS
 
 ### 2. Sentiment analysis of movie reviews
 This task focus an analyzing if a movie review is positive or negative. The data set includes multiple columns. For a simple binary classifier we can use the positive/negative label, or if one wants, one can use the rating for some more specific classification. Either a multi-class classification or just to weight features depending on rating.
+
+The task is to implement the three functions:
+```python
+def feature_extraction(data_set: iter) -> iter:
+```
+In this function you are supposed extract the features used to train the classifier. 
+> **Tip:** Use some of the linguistic morphology techniques mentioned above.
+
+```python
+def split_data_set(data_set: iter, label_set: iter, rating_set: iter = None) -> (iter, iter, iter, iter):
+```
+Split the data set into training and test set. It is possible to use the positive/negative labels or the ratings.  
+Format the output like this: `training_data, test_data, training_labels, test_labels`
+
+```python
+def init_classifier():
+```
+Initiate a scikit-learn estimator. 
+> **Tip:** Optimize hyper-parameters for the estimator (e.g. [GridSearch](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html#sklearn-model-selection-gridsearchcv)).
 
 __Data set__:
 

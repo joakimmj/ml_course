@@ -37,7 +37,7 @@ def execute_spam_filter():
 
     feature_set = spam_filter.feature_extraction(data)
     training_data, test_data, training_labels, test_labels = spam_filter.split_data_set(feature_set, labels)
-    clf = spam_filter.classifier()
+    clf = spam_filter.init_classifier()
 
     __validate_model(clf, training_data, test_data, training_labels, test_labels)
 
@@ -48,6 +48,6 @@ def execute_sentiment_analysis():
 
     feature_set = sentiment_analysis.feature_extraction(data)
     training_data, test_data, training_labels, test_labels = sentiment_analysis.split_data_set(feature_set, labels, ratings)
-    clf = sentiment_analysis.classifier()
+    clf = sentiment_analysis.init_classifier()
 
     __validate_model(clf, training_data, test_data, training_labels, test_labels)
