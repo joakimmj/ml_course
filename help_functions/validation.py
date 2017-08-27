@@ -1,12 +1,13 @@
-from sklearn import metrics
+import number_classifier
 import sentiment_analysis
 import spam_filter
-from help_functions import data_retriever
 import numpy as np
+from help_functions import data_retriever, bitmap_handler
+from sklearn import metrics
 
 
-def __validate_model(clf, training_data: iter, test_data: iter, training_labels: iter,
-                     test_labels: iter, average='micro', pos_label=1):
+def __validate_model(clf, training_data: iter, test_data: iter, training_labels: iter, test_labels: iter,
+                     average: str = 'micro', pos_label: int = 1, bitmap: bool = False):
     multi_class = len(np.unique(training_labels, return_counts=True)[0]) > 2
 
     print('Training classifier (%s)...' % ('multi class' if multi_class else 'binary'))
@@ -30,6 +31,9 @@ def __validate_model(clf, training_data: iter, test_data: iter, training_labels:
     print('Classification report:\n%s\n\nConfusion matrix:\n%s\n\nF-score: %.2f\nPrecision: %.2f\nRecall: %.2f'
           % (classification_report, confusion_matrix, f1_score, precision, recall))
 
+    if bitmap:
+        bitmap_handler.compare_wrong_results(test_data, predictions, test_labels)
+
 
 def execute_spam_filter():
     print('-- Executing spam filter')
@@ -51,3 +55,14 @@ def execute_sentiment_analysis():
     clf = sentiment_analysis.init_classifier()
 
     __validate_model(clf, training_data, test_data, training_labels, test_labels)
+
+
+def execute_number_classifier():
+    print('-- Executing number classification')
+    data, labels = data_retriever.load_mnist()
+
+    feature_set = number_classifier.feature_extraction(data)
+    training_data, test_data, training_labels, test_labels = number_classifier.split_data_set(feature_set, labels)
+    clf = number_classifier.init_classifier()
+
+    __validate_model(clf, training_data, test_data, training_labels, test_labels, bitmap=True)

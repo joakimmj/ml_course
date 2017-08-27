@@ -2,6 +2,7 @@ import csv
 import numpy as np
 import os
 import pickle
+from sklearn import datasets, utils
 
 REVIEW_SOURCE = './files/review_data/review_source.csv'
 REVIEW_DATA = './files/review_data/review_data.sav'
@@ -40,3 +41,13 @@ def load_reviews(reload: bool = False):
 def load_sms(reload: bool = False):
     data_set = __load_file(SMS_SOURCE, SMS_DATA, reload)
     return data_set[:, -1], data_set[:, 0].astype(int)
+
+
+def load_mnist():
+    mnist = datasets.fetch_mldata('MNIST original', data_home='./files')
+    print("Fetched %d bitmaps." % len(mnist.target))
+
+    print("Shuffle data set")
+    mnist.data, mnist.target = utils.shuffle(mnist.data, mnist.target)
+
+    return mnist.data, mnist.target

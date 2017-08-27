@@ -107,3 +107,19 @@ Positive | Rating  | Review
 -------- | ------- | -------------------------------------------------------------------------
 1        | 10      | A nicely done thriller with plenty of ...
 0        | 2       | This film just goes around in circles ... 
+
+
+### Extra task - number classification
+In this extra task we want to classify bitmaps to numbers. Each bitmap is represented by a 1d-array.
+ 
+The task is to implement the three functions:
+```python
+def feature_extraction(data_set: iter) -> iter:
+def split_data_set(data_set: iter, label_set: iter, rating_set: iter = None) -> (iter, iter, iter, iter):
+def init_classifier():
+```
+
+When running the `extra.py` script, you will get printed the wrongly classified numbers. 
+
+As seen here:   
+![Bitmap](files/bitmap_example.png)
