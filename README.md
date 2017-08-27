@@ -37,15 +37,27 @@ For choosing the right estimator we can use scikit's estimator chooser:
 ![Estimator picker](files/ml_map.png)
 
 ## Setup
-Install python 3 and scikit-learn
+Please `git clone` this repo before you do anything else.
 
+All you need to complete these tasks is included with Anaconda. If you are on linux you can also just create a virtual environment and install the required packages.
+
+If you need a decent IDE for python (no IDE wars please), get the [Pycharm Community Edition](https://www.jetbrains.com/pycharm/).
+
+Some of the code may require the latest version of Anaconda, so please re-install or upgrade if you are on an old version.
 ### Windows
-install anaconda
+[Install Anaconda](https://docs.continuum.io/anaconda/install/windows.html).
 
 ### Linux/MacOS
+
+####opt 1 - install anaconda
+[Install Anaconda](https://docs.continuum.io/anaconda/install/).
+
+####opt 2 - install requirements
 ```bash
+python3 -m venv env
 pip install -r requirements.txt
 ```
+note: you may have to install `venv` separately.
 
 ## Tasks
 > **Tip:** Use some of the linguistic morphology techniques mentioned above.
