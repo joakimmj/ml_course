@@ -53,7 +53,7 @@ Some of the code may require the latest version of Anaconda, so please re-instal
 
 [Install Anaconda](https://www.anaconda.com/download/#download).
 
-####opt 2 - install requirements
+#### opt 2 - install requirements
 ```bash
 python3 -m venv env
 pip install -r requirements.txt
@@ -63,14 +63,33 @@ note: you may have to install `venv` separately.
 If you are using pycharm, it would now be a good idea to set the python interpreter from anaconda as the [project interpreter](https://www.jetbrains.com/help/pycharm/project-interpreter.html).
 
 ## Tasks
-> **Tip:** Use some of the linguistic morphology techniques mentioned above.
+> **Tip:** Use some of the linguistic morphology techniques
 
 Start with running `main.py`. If you are getting an error here like `No module named 'sklearn'`, make sure you are running it with the python install or environment we set up earlier. If it still fails go back to the setup part or get help from an instructor.
 
 ### 1. Spam filter
+file: [spam_filter.py](tasks/spam_filter.py)
+
 In this task we are going to classify a SMS as either spam or ham. The data set is labeled with 0 (ham) and 1 (spam).
 
-For this task you will be implementing the methods in `spam_filter.py`
+The task is to implement the three functions:
+```python
+def feature_extraction(data_set: iter) -> iter:
+```
+In this function you are supposed extract the features used to train the classifier. 
+> **Tip:** Use some of the linguistic morphology techniques mentioned above.
+
+```python
+def split_data_set(data_set: iter, label_set: iter) -> (iter, iter, iter, iter):
+```
+Split the data set into training and test set.  
+Format the output like this: `training_data, test_data, training_labels, test_labels`
+
+```python
+def init_classifier():
+```
+Initiate a scikit-learn estimator. 
+> **Tip:** Optimize hyper-parameters for the estimator (e.g. [GridSearch](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html#sklearn-model-selection-gridsearchcv)).
 
 __Data set__:
 
@@ -80,10 +99,28 @@ Spam     | SMS
 1        | Did you hear about ...
 
 ### 2. Sentiment analysis of movie reviews
+file: [sentiment_analysis.py](tasks/sentiment_analysis.py)
+
 This task focus an analyzing if a movie review is positive or negative. The data set includes multiple columns. For a simple binary classifier we can use the positive/negative label, or if one wants, one can use the rating for some more specific classification. Either a multi-class classification or just to weight features depending on rating.
 
-For this task you will be implementing the methods in `sentiment_analysis.py`.
+The task is to implement the three functions:
+```python
+def feature_extraction(data_set: iter) -> iter:
+```
+In this function you are supposed extract the features used to train the classifier. 
+> **Tip:** Use some of the linguistic morphology techniques mentioned above.
 
+```python
+def split_data_set(data_set: iter, label_set: iter, rating_set: iter = None) -> (iter, iter, iter, iter):
+```
+Split the data set into training and test set. It is possible to use the positive/negative labels or the ratings.  
+Format the output like this: `training_data, test_data, training_labels, test_labels`
+
+```python
+def init_classifier():
+```
+Initiate a scikit-learn estimator. 
+> **Tip:** Optimize hyper-parameters for the estimator (e.g. [GridSearch](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html#sklearn-model-selection-gridsearchcv)).
 
 __Data set__:
 
@@ -91,3 +128,24 @@ Positive | Rating  | Review
 -------- | ------- | -------------------------------------------------------------------------
 1        | 10      | A nicely done thriller with plenty of ...
 0        | 2       | This film just goes around in circles ... 
+
+
+## Extra tasks
+Execute the `extra.py` script with `python extra.py`.
+
+### 1. Number classification
+file: [number_classifier.py](tasks/number_classifier.py)
+
+In this extra task we want to classify bitmaps to numbers. Each bitmap is represented by a 1d-array.
+ 
+The task is to implement the three functions:
+```python
+def feature_extraction(data_set: iter) -> iter:
+def split_data_set(data_set: iter, label_set: iter, rating_set: iter = None) -> (iter, iter, iter, iter):
+def init_classifier():
+```
+
+When running the `extra.py` script, you will get printed the wrongly classified numbers. 
+
+As seen here:   
+![Bitmap](files/bitmap_example.png)
