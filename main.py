@@ -1,5 +1,5 @@
-from help_functions import validation
+from help_functions import validate_classifier, validate_regression
 
 if __name__ == '__main__':
-    validation.execute_spam_filter()
-    validation.execute_sentiment_analysis()
+    validate_classifier.execute_spam_filter()
+    validate_regression.execute_sentiment_analysis()
