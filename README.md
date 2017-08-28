@@ -80,12 +80,6 @@ In this function you are supposed extract the features used to train the classif
 > **Tip:** Use some of the linguistic morphology techniques mentioned above.
 
 ```python
-def split_data_set(data_set: iter, label_set: iter) -> (iter, iter, iter, iter):
-```
-Split the data set into training and test set.  
-Format the output like this: `training_data, test_data, training_labels, test_labels`
-
-```python
 def init_classifier():
 ```
 Initiate a scikit-learn estimator. 
@@ -130,7 +124,6 @@ In this extra task we want to classify bitmaps to numbers. Each bitmap is repres
 The task is to implement the three functions:
 ```python
 def feature_extraction(data_set: iter) -> iter:
-def split_data_set(data_set: iter, label_set: iter, rating_set: iter = None) -> (iter, iter, iter, iter):
 def init_classifier():
 ```
 
