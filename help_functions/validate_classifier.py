@@ -26,7 +26,7 @@ def __validate_model(clf, test_src: iter, training_data: iter, test_data: iter, 
         precision = metrics.precision_score(test_labels, predictions, pos_label=pos_label)
         recall = metrics.recall_score(test_labels, predictions, pos_label=pos_label)
 
-    print('Classification report:\n%s\n\nConfusion matrix:\n%s\n\nF-score: %.2f\nPrecision: %.2f\nRecall: %.2f'
+    print('Classification report:\n%s\n\nConfusion matrix:\n%s\n\nF-score: %.2f\nPrecision: %.2f\nRecall: %.2f\n'
           % (classification_report, confusion_matrix, f1_score, precision, recall))
 
     if bitmap:
