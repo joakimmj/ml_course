@@ -93,6 +93,8 @@ Initiate a scikit-learn estimator.
 
 __Data set__:
 
+You can have a look at the data in the [sms csv file.](files/spam_data/sms_source.csv)
+
 Spam     | SMS 
 -------- | ----------------------------------------------------------------------------------
 0        | Fair enough, ...
@@ -111,6 +113,8 @@ def init_classifier():
 ```
 
 __Data set__:
+
+You can have a look at the data in the [review csv file.](files/review_data/review_source.csv)
 
 Positive | Rating  | Review 
 -------- | ------- | -------------------------------------------------------------------------
