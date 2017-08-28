@@ -33,23 +33,42 @@ def __validate_model(clf, training_data: iter, test_data: iter, training_labels:
         bitmap_handler.compare_wrong_results(test_data, predictions, test_labels)
 
 
-def execute_spam_filter():
-    print('-- Executing spam filter')
-    data, labels = data_retriever.load_sms()
+def __execute(data_loader, feature_extractor, data_splitter, classifier):
+    data, labels = data_loader()
 
-    feature_set = spam_filter.feature_extraction(data)
-    training_data, test_data, training_labels, test_labels = spam_filter.split_data_set(feature_set, labels)
-    clf = spam_filter.init_classifier()
+    print('Extracting features...')
+    print('- before:\n%s' % data[0])
+    feature_set = feature_extractor(data)
+    print('- after:\n%s' % feature_set[0])
+
+    print('Splitting data...')
+    training_data, test_data, training_labels, test_labels = data_splitter(feature_set, labels)
+    print('- size: %d (training), %d (test)' % (len(training_labels), len(test_labels)))
+
+    clf = classifier()
 
     __validate_model(clf, training_data, test_data, training_labels, test_labels)
+
+
+def execute_spam_filter():
+    print('-- Executing spam filter')
+    __execute(data_retriever.load_sms, spam_filter.feature_extraction,
+              spam_filter.split_data_set, spam_filter.init_classifier)
 
 
 def execute_sentiment_analysis():
     print('-- Executing sentiment analysis')
     data, labels, ratings = data_retriever.load_reviews()
 
+    print('Extracting features...')
+    print('- before:\n%s' % data[0])
     feature_set = sentiment_analysis.feature_extraction(data)
+    print('- after:\n%s' % feature_set[0])
+
+    print('Splitting data...')
     training_data, test_data, training_labels, test_labels = sentiment_analysis.split_data_set(feature_set, labels, ratings)
+    print('- size: %d (training), %d (test)' % (len(training_labels), len(test_labels)))
+
     clf = sentiment_analysis.init_classifier()
 
     __validate_model(clf, training_data, test_data, training_labels, test_labels)
@@ -57,10 +76,5 @@ def execute_sentiment_analysis():
 
 def execute_number_classifier():
     print('-- Executing number classification')
-    data, labels = data_retriever.load_mnist()
-
-    feature_set = number_classifier.feature_extraction(data)
-    training_data, test_data, training_labels, test_labels = number_classifier.split_data_set(feature_set, labels)
-    clf = number_classifier.init_classifier()
-
-    __validate_model(clf, training_data, test_data, training_labels, test_labels, bitmap=True)
+    __execute(data_retriever.load_mnist, number_classifier.feature_extraction,
+              number_classifier.split_data_set, number_classifier.init_classifier)
