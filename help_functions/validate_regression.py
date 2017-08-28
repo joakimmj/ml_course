@@ -8,13 +8,13 @@ def __validate_model(clf, training_data: iter, test_data: iter, training_labels:
 
 
 def execute_sentiment_analysis():
-    print('-- Executing sentiment analysis')
+    fprint('-- Executing sentiment analysis')
     data, labels, ratings = data_retriever.load_reviews()
 
     print('Extracting features...')
     print('- before:\n%s' % data[0])
     feature_set = sentiment_analysis.feature_extraction(data)
-    print('- after:\n%s' % feature_set[0])
+    print('- after:\n%s' % eature_set[0])
 
     print('Splitting data...')
     training_data, test_data, training_labels, test_labels = None  # TODO: split the data
@@ -24,3 +24,5 @@ def execute_sentiment_analysis():
 
     __validate_model(clf, training_data, test_data, training_labels, test_labels)
 
+if __name__ == '__main__':
+   execute_sentiment_analysis()
