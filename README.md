@@ -103,7 +103,9 @@ Spam     | SMS
 ### 2. Sentiment analysis of movie reviews
 file: [sentiment_analysis.py](tasks/sentiment_analysis.py)
 
-The data set includes multiple columns. For a simple binary classifier we could use the positive/negative label, but that is too easy. We are going to predict the exact score of the review. You can either use a multiclass classifier or a regression approach. Do remember that the goal here is to minimize RMSE, we don't really care about the f1 score.
+The data set includes multiple columns. For a simple binary classifier we could use the positive/negative label, but that is too easy. We are going to predict the exact score of the review. Here we are going to measure how well you are doing with Root Mean Squared Error. RMSE is a measure of how much, on average, your predictor is missing the target score.
+
+As we did in the last task we _could_ use a _classifier_. However, this would then be a so-called multiclass classification problem. If we instead want make use of the fact that the problem is predicting a score on a linear scale it would be smart to instead think of this as a regression problem. There are examples of _regressors_ in the model selector we looked at earlier. 
 
 Instead of providing you with all the glue code you are going to build a pipeline. Think of a pipeline as a chain of transformers that mold the data, followed by an estimator that learns and predicts based on the earlier transformers. Pipeline docs for the curious: [docs](http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html).
 
