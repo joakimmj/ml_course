@@ -1,11 +1,8 @@
-
-
-def feature_extraction(data_set: iter) -> iter:
-    raise NotImplementedError('Extract features from the data set.')
-
-def init_classifier():
-    raise NotImplementedError('Implement classifier.')
-
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.svm import LinearSVC
+from sklearn.pipeline import Pipeline
+from sklearn.linear_model import RidgeClassifier
+from sklearn.decomposition import LatentDirichletAllocation
 
 
 def make_pipeline():
@@ -16,4 +13,14 @@ def make_pipeline():
 
     :return: a working pipeline.
     '''
+    #TODO remove pipeline steps
+    pipeline_steps = [
+        ('cv', CountVectorizer()),
+        ('svr', LinearSVC())
+    ]
+
+    return Pipeline(steps=pipeline_steps)
+
+
+
 
