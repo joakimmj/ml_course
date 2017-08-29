@@ -17,10 +17,10 @@ def __read_file(source, rows):
         csv_reader.__next__()
 
         for i, row in enumerate(csv_reader):
-            data_set.append(row)
-
-            if i > rows:
+            if i >= rows >= 0:
                 break
+
+            data_set.append(row)
 
     return np.array(data_set)
 

@@ -41,6 +41,9 @@ def print_wrong_predictions(src_data: iter, predictions: iter, labels: iter, top
     j = 0
 
     for i, label in enumerate(labels):
+        if j >= top >= 0:
+            break
+
         if predictions[i] != label:
             j += 1
 
@@ -49,6 +52,3 @@ def print_wrong_predictions(src_data: iter, predictions: iter, labels: iter, top
                 __print_bitmap(src_data[i], labels[i], predictions[i])
             else:
                 print('Label: %s Predicted: %s Msg: %s' % (label, predictions[i], src_data[i]))
-
-        if top == j and top != -1:
-            break
