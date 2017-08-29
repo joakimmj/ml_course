@@ -50,9 +50,9 @@ Some of the code may require the latest version of Anaconda, so please re-instal
 If you are using pycharm, it would now be a good idea to set the python interpreter from anaconda as the [project interpreter](https://www.jetbrains.com/help/pycharm/project-interpreter.html).
 
 ### Linux/MacOS
-Install Python 3.6 and the requirements in requirements.txt.
+Install Python 3.6.
 
-This can be done by simply installing them with `pip`.
+To install the requirements simply install them with `pip`.
 ```bash
 pip3 install -r requirements.txt
 ```
