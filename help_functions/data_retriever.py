@@ -10,36 +10,39 @@ SMS_SOURCE = 'files/spam_data/sms_source.csv'
 SMS_DATA = 'files/spam_data/sms_data.sav'
 
 
-def __read_file(source):
+def __read_file(source, rows):
     data_set = []
     with open(source, 'r') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         csv_reader.__next__()
 
-        for row in csv_reader:
+        for i, row in enumerate(csv_reader):
             data_set.append(row)
+
+            if i > rows:
+                break
 
     return np.array(data_set)
 
 
-def __load_file(source_location: str, save_location: str, reload: bool):
+def __load_file(source_location: str, save_location: str, reload: bool, rows: int):
     print('Retrieving data...')
 
     if os.path.exists(save_location) and not reload:
         return pickle.load(open(save_location, 'rb'))
 
-    data_set = __read_file(source_location)
+    data_set = __read_file(source_location, rows)
     pickle.dump(data_set, open(save_location, 'wb'))
     return data_set
 
 
-def load_reviews(reload: bool = False):
-    data_set = __load_file(REVIEW_SOURCE, REVIEW_DATA, reload)
+def load_reviews(reload: bool = False, rows: int = -1):
+    data_set = __load_file(REVIEW_SOURCE, REVIEW_DATA, reload, rows)
     return data_set[:, -1], data_set[:, 0].astype(int), data_set[:, 1].astype(int)
 
 
-def load_sms(reload: bool = False):
-    data_set = __load_file(SMS_SOURCE, SMS_DATA, reload)
+def load_sms(reload: bool = False, rows: int = -1):
+    data_set = __load_file(SMS_SOURCE, SMS_DATA, reload, rows)
     return data_set[:, -1], data_set[:, 0].astype(int)
 
 
