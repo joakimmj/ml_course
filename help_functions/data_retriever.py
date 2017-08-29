@@ -49,11 +49,14 @@ def load_sms(cache_data: bool = False, rows: int = -1):
     return data_set[:, -1], data_set[:, 0].astype(int)
 
 
-def load_mnist():
+def load_mnist(rows: int = -1):
     mnist = datasets.fetch_mldata('MNIST original', data_home='./files')
     print("Fetched %d bitmaps." % len(mnist.target))
 
     print("Shuffle data set")
     mnist.data, mnist.target = utils.shuffle(mnist.data, mnist.target)
 
-    return mnist.data, mnist.target
+    if rows < 0:
+        return mnist.data, mnist.target
+    else:
+        return mnist.data[:rows], mnist.target[:rows]

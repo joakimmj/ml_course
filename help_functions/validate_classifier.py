@@ -63,8 +63,8 @@ def execute_spam_filter(show: int = 10, test_size: float = .3, cache_data: bool 
               spam_filter.init_classifier, show, test_size, bitmap=False)
 
 
-def execute_number_classifier(show: int = 10, test_size: float = .3, cache_data: bool = True, rows: int = -1):
+def execute_number_classifier(show: int = 10, test_size: float = .3, rows: int = -1):
     print('-- Executing number classification')
-    data, labels = data_retriever.load_mnist()
+    data, labels = data_retriever.load_mnist(rows)
     __execute(data, labels, number_classifier.feature_extraction,
               number_classifier.init_classifier, show, test_size, bitmap=True)
