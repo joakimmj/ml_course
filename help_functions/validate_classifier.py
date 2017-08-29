@@ -1,11 +1,11 @@
 import numpy as np
 from sklearn import metrics, utils
-from help_functions import data_retriever, bitmap_handler
+from help_functions import data_retriever, result_printer
 from tasks import spam_filter, number_classifier
 
 
 def __validate_model(clf, test_src: iter, training_data: iter, test_data: iter, training_labels: iter,
-                     test_labels: iter, average: str = 'micro', pos_label: int = 1, bitmap: bool = False):
+                     test_labels: iter, top: int, average: str = 'micro', pos_label: int = 1, bitmap: bool = False):
     multi_class = len(np.unique(training_labels, return_counts=True)[0]) > 2
 
     print('Training classifier (%s)...' % ('multi class' if multi_class else 'binary'))
@@ -29,12 +29,7 @@ def __validate_model(clf, test_src: iter, training_data: iter, test_data: iter, 
     print('Classification report:\n%s\n\nConfusion matrix:\n%s\n\nF-score: %.2f\nPrecision: %.2f\nRecall: %.2f\n'
           % (classification_report, confusion_matrix, f1_score, precision, recall))
 
-    if bitmap:
-        bitmap_handler.compare_wrong_results(test_src, predictions, test_labels)
-    else:
-        for i, label in enumerate(test_labels):
-            if predictions[i] != label:
-                print('Label: %s Predicted: %s Msg: %s' % (label, predictions[i], test_src[i]))
+    result_printer.print_wrong_predictions(test_src, predictions, test_labels, top, bitmap=bitmap)
 
 
 def __split_data_set(data_set: np.ndarray, test_size: float):
@@ -42,7 +37,7 @@ def __split_data_set(data_set: np.ndarray, test_size: float):
     return data_set[:split], data_set[split:]
 
 
-def __execute(data_loader, feature_extractor, classifier, test_size: float, bitmap: bool):
+def __execute(data_loader, feature_extractor, classifier, show: int,  test_size: float, bitmap: bool):
     data, labels = data_loader()
     data, labels = utils.shuffle(data, labels)
 
@@ -59,16 +54,16 @@ def __execute(data_loader, feature_extractor, classifier, test_size: float, bitm
 
     clf = classifier()
 
-    __validate_model(clf, test_src, training_data, test_data, training_labels, test_labels, bitmap=bitmap)
+    __validate_model(clf, test_src, training_data, test_data, training_labels, test_labels, top=show, bitmap=bitmap)
 
 
-def execute_spam_filter(test_size: float = .3):
+def execute_spam_filter(show: int = 10, test_size: float = .3):
     print('-- Executing spam filter')
     __execute(data_retriever.load_sms, spam_filter.feature_extraction,
-              spam_filter.init_classifier, test_size, bitmap=False)
+              spam_filter.init_classifier, show, test_size, bitmap=False)
 
 
-def execute_number_classifier(test_size: float = .3):
+def execute_number_classifier(show: int = 10, test_size: float = .3):
     print('-- Executing number classification')
     __execute(data_retriever.load_mnist, number_classifier.feature_extraction,
-              number_classifier.init_classifier, test_size, bitmap=True)
+              number_classifier.init_classifier, show, test_size, bitmap=True)
