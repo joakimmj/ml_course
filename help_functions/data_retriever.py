@@ -5,9 +5,9 @@ import pickle
 from sklearn import datasets, utils
 
 REVIEW_SOURCE = './files/review_data/review_source.csv'
-REVIEW_DATA = './files/review_data/review_data.sav'
+REVIEW_DATA = './files/review_data/review_data_%d.sav'
 SMS_SOURCE = './files/spam_data/sms_source.csv'
-SMS_DATA = './files/spam_data/sms_data.sav'
+SMS_DATA = './files/spam_data/sms_data_%d.sav'
 
 
 def __read_file(source, rows):
@@ -40,12 +40,12 @@ def __load_file(source_location: str, save_location: str, cache_data: bool, rows
 
 
 def load_reviews(cache_data: bool = False, rows: int = -1):
-    data_set = __load_file(REVIEW_SOURCE, REVIEW_DATA, cache_data, rows)
+    data_set = __load_file(REVIEW_SOURCE, REVIEW_DATA % rows, cache_data, rows)
     return data_set[:, -1], data_set[:, 0].astype(int), data_set[:, 1].astype(int)
 
 
 def load_sms(cache_data: bool = False, rows: int = -1):
-    data_set = __load_file(SMS_SOURCE, SMS_DATA, cache_data, rows)
+    data_set = __load_file(SMS_SOURCE, SMS_DATA % rows, cache_data, rows)
     return data_set[:, -1], data_set[:, 0].astype(int)
 
 
