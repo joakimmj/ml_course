@@ -88,6 +88,7 @@ Initiate a scikit-learn estimator.
 __Data set__:
 
 You can have a look at the data in the [sms csv file.](files/spam_data/sms_source.csv)
+Do not click any links in the text. They are spam, and may be bad for your health.
 
 Spam     | SMS 
 -------- | ----------------------------------------------------------------------------------
