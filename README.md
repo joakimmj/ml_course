@@ -103,6 +103,8 @@ As we did in the last task we _could_ use a _classifier_. However, this would th
 
 Instead of providing you with all the glue code you are going to build a pipeline. Think of a pipeline as a chain of transformers that mold the data, followed by an estimator that learns and predicts based on the earlier transformers. Pipeline docs for the curious: [docs](http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html).
 
+We have given you a simple starting pipeline with a dummy transformer and regressor. Feel free to change those as you see fit, or use the transformers and estimators provided by scikit learn.
+
 __Data set__:
 
 You can have a look at the data in the [review csv file.](files/review_data/review_source.csv).
