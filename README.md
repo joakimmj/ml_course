@@ -73,7 +73,7 @@ file: [spam_filter.py](tasks/spam_filter.py)
 
 In this task we are going to classify a SMS as either spam or ham. The data set is labeled with 0 (ham) and 1 (spam).
 
-The task is to implement the three functions:
+The task is to implement the two functions:
 ```python
 def feature_extraction(data_set: iter) -> iter:
 ```
@@ -125,7 +125,7 @@ file: [number_classifier.py](tasks/number_classifier.py)
 
 In this extra task we want to classify bitmaps to numbers. Each bitmap is represented by a 1d-array.
  
-The task is to implement the three functions:
+The task is to implement the two functions:
 ```python
 def feature_extraction(data_set: iter) -> iter:
 def init_classifier():
