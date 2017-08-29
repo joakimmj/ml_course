@@ -47,9 +47,9 @@ def display_results(data, target, predicted):
         print('Target: {1} Predicted: {2} Miss: {3} \nText: {0}'.format(*example))
 
 
-def execute_sentiment_analysis(rows: int = -1, reload: bool = True):
+def execute_sentiment_analysis(rows: int = -1, cache_data: bool = False):
     print('-- Executing sentiment analysis')
-    data, labels, ratings = data_retriever.load_reviews(rows=rows, reload=reload)
+    data, labels, ratings = data_retriever.load_reviews(rows=rows, cache_data=cache_data)
 
     pipeline = sentiment_analysis.make_pipeline()
 

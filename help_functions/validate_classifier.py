@@ -37,9 +37,9 @@ def __split_data_set(data_set: np.ndarray, test_size: float):
     return data_set[:split], data_set[split:]
 
 
-def __execute(data_loader, feature_extractor, classifier, show: int,  test_size: float, bitmap: bool, reload: bool,
+def __execute(data_loader, feature_extractor, classifier, show: int, test_size: float, bitmap: bool, cahce_data: bool,
               rows: int):
-    data, labels = data_loader(reload=reload, rows=rows)
+    data, labels = data_loader(cache_data=cahce_data, rows=rows)
     data, labels = utils.shuffle(data, labels)
 
     print('Extracting features...')
@@ -58,13 +58,13 @@ def __execute(data_loader, feature_extractor, classifier, show: int,  test_size:
     __validate_model(clf, test_src, training_data, test_data, training_labels, test_labels, top=show, bitmap=bitmap)
 
 
-def execute_spam_filter(show: int = 10, test_size: float = .3, reload: bool = True, rows: int = -1):
+def execute_spam_filter(show: int = 10, test_size: float = .3, cache_data: bool = False, rows: int = -1):
     print('-- Executing spam filter')
     __execute(data_retriever.load_sms, spam_filter.feature_extraction,
-              spam_filter.init_classifier, show, test_size, bitmap=False, reload=reload, rows=rows)
+              spam_filter.init_classifier, show, test_size, bitmap=False, cahce_data=cache_data, rows=rows)
 
 
 def execute_number_classifier(show: int = 10, test_size: float = .3, reload: bool = True, rows: int = -1):
     print('-- Executing number classification')
     __execute(data_retriever.load_mnist, number_classifier.feature_extraction,
-              number_classifier.init_classifier, show, test_size, bitmap=True, reload=reload, rows=rows)
+              number_classifier.init_classifier, show, test_size, bitmap=True, cahce_data=reload, rows=rows)
