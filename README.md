@@ -56,6 +56,7 @@ Some of the code may require the latest version of Anaconda, so please re-instal
 #### opt 2 - install requirements
 ```bash
 python3 -m venv env
+source env/env/bin/activate
 pip install -r requirements.txt
 ```
 > **Note:** you may have to install `venv` separately.
