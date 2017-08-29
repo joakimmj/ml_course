@@ -37,15 +37,14 @@ For choosing the right estimator we can use scikit's estimator chooser:
 ![Estimator picker](files/ml_map.png)
 
 ## Setup
-Please `git clone` this repo before you do anything else.
-
-All you need to complete these tasks is included with Anaconda. If you are on linux you can also just create a virtual environment and install the required packages.
+Please clone (`git clone`) or download this repo before you do anything else.
 
 If you need a decent IDE for python (no IDE wars please), get the [Pycharm Community Edition](https://www.jetbrains.com/pycharm/).
 
-Some of the code may require the latest version of Anaconda, so please re-install or upgrade if you are on an old version.
 ### Windows
 [Install Anaconda](https://www.anaconda.com/download/#download).
+
+All you need to complete these tasks is included with Anaconda. Some of the code may require the latest version of Anaconda, so please re-install or upgrade if you are on an old version.
 
 If you are using pycharm, it would now be a good idea to set the python interpreter from anaconda as the [project interpreter](https://www.jetbrains.com/help/pycharm/project-interpreter.html).
 
