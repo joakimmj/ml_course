@@ -47,13 +47,17 @@ Some of the code may require the latest version of Anaconda, so please re-instal
 ### Windows
 [Install Anaconda](https://www.anaconda.com/download/#download).
 
+If you are using pycharm, it would now be a good idea to set the python interpreter from anaconda as the [project interpreter](https://www.jetbrains.com/help/pycharm/project-interpreter.html).
+
 ### Linux/MacOS
+Install Python 3.6 and the requirements in requirements.txt.
 
-#### opt 1 - install anaconda
+This can be done by simply installing them with `pip`.
+```bash
+pip3 install -r requirements.txt
+```
 
-[Install Anaconda](https://www.anaconda.com/download/#download).
-
-#### opt 2 - install requirements
+Or if you want to install them locally in a virtual environment, do the following;
 ```bash
 python3 -m venv env
 source env/bin/activate
@@ -61,7 +65,8 @@ pip install -r requirements.txt
 ```
 > **Note:** you may have to install `venv` separately.
 
-If you are using pycharm, it would now be a good idea to set the python interpreter from anaconda as the [project interpreter](https://www.jetbrains.com/help/pycharm/project-interpreter.html).
+If you are using pycharm, it would now be a good idea to set the [project interpreter](https://www.jetbrains.com/help/pycharm/project-interpreter.html)
+to either the global python install, or if you installed in virtual environment, set it to `env/bin/python`.
 
 ## Tasks
 Execute the `main.py` script with `python main.py`.
