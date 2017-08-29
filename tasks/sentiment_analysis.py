@@ -46,7 +46,7 @@ class RandomRegressor(RegressorMixin):
     Just a stupid predictor that takes in some data and returns garbage.
     """
 
-    def __init__(self, minimum = 1, maximum = 11):
+    def __init__(self, minimum=1, maximum=11):
         """
         This is where you would accept the hyper parameters
         """
@@ -58,4 +58,3 @@ class RandomRegressor(RegressorMixin):
 
     def predict(self, X):
         return np.random.randint(low=self.minimum, high=self.maximum, size=X.shape[0])
-
