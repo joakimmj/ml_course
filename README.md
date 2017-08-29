@@ -103,18 +103,15 @@ Spam     | SMS
 ### 2. Sentiment analysis of movie reviews
 file: [sentiment_analysis.py](tasks/sentiment_analysis.py)
 
-This task focus an analyzing if a movie review is positive or negative. The data set includes multiple columns. For a simple binary classifier we can use the positive/negative label, or if one wants, one can use the rating for some more specific classification. Either a multi-class classification or just to weight features depending on rating.
+The data set includes multiple columns. For a simple binary classifier we could use the positive/negative label, but that is too easy. We are going to predict the exact score of the review. Here we are going to measure how well you are doing with Root Mean Squared Error. RMSE is a measure of how much, on average, your predictor is missing the target score.
 
-The task is to implement the three functions:
-```python
-def feature_extraction(data_set: iter) -> iter:
-def split_data_set(data_set: iter, label_set: iter, rating_set: iter = None) -> (iter, iter, iter, iter):
-def init_classifier():
-```
+As we did in the last task we _could_ use a _classifier_. However, this would then be a so-called multiclass classification problem. If we instead want make use of the fact that the problem is predicting a score on a linear scale it would be smart to instead think of this as a regression problem. There are examples of _regressors_ in the model selector we looked at earlier. 
+
+Instead of providing you with all the glue code you are going to build a pipeline. Think of a pipeline as a chain of transformers that mold the data, followed by an estimator that learns and predicts based on the earlier transformers. Pipeline docs for the curious: [docs](http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html).
 
 __Data set__:
 
-You can have a look at the data in the [review csv file.](files/review_data/review_source.csv)
+You can have a look at the data in the [review csv file.](files/review_data/review_source.csv).
 
 Positive | Rating  | Review 
 -------- | ------- | -------------------------------------------------------------------------
