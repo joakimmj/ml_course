@@ -76,29 +76,66 @@ If you are getting an error here like `No module named 'sklearn'`, make sure you
 file: [spam_filter.py](tasks/spam_filter.py)
 
 In this task we are going to classify a SMS as either spam or ham. The data set is labeled with 0 (ham) and 1 (spam).
+To better understand all the steps of creating and validating a classifier we are going to:
 
-The task is to implement the two functions:
-```python
-def feature_extraction(data_set: iter) -> iter:
-```
-In this function you are supposed extract the features used to train the classifier. 
-> **Tip:** Use some of the linguistic morphology techniques mentioned above.
-
-```python
-def init_classifier():
-```
-Initiate a scikit-learn estimator. 
-> **Tip:** Optimize hyper-parameters for the estimator (e.g. [GridSearch](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html#sklearn-model-selection-gridsearchcv)).
+1. Split the data into testing and training sets.
+2. Extract features from the test data.
+3. Train the classifier.
+4. Verify that the classifier can tell the difference between spam and ham on unseen data.
 
 __Data set__:
 
-You can have a look at the data in the [sms csv file.](files/spam_data/sms_source.csv)
+Have a look at the data in the [sms csv file.](files/spam_data/sms_source.csv), can you identify some words that occur more often in the spam?
 Do not click any links in the text. They are spam, and may be bad for your health.
 
 Spam     | SMS 
 -------- | ----------------------------------------------------------------------------------
 0        | Fair enough, ...
 1        | Did you hear about ...
+
+#### 1a) Loading and splitting the data.
+
+In order to validate that the classifier is unbiased and able to make accurate predictions after the training phase we have to train it on one part of the data, and test it on another.
+
+Generally this is done by first shuffling the data-set, so that we avoid any bias in the ordering of the data followed by slicing on some index determined by how big each set should be.
+
+Your job is to implement the function `split_and_shuffle_data_set`. It takes the data as an array of strings and the labels as an array of ints.
+
+You can do this however you would like, but it could be a good idea to use sklearns [shuffle](http://scikit-learn.org/stable/modules/generated/sklearn.utils.shuffle.html) function and list slicing.
+
+
+#### 1b) Feature extraction: transforming the text messages from text to vectors.
+
+Next we are going to extract features from the data. Mainly there are two important things to keep in mind here: 
+* Most ML algorithms require that we describe each data point as a vector of numbers.
+* What features we extract will ultimately determine what the algorithm is capable of learning. Here we are going to make a simple count vectorizer with no added magic. This is a word bag model, and the predictor will therefore only be able to infer things from what words are present, not the structure of the sentences themselves.
+
+In order to complete this task we are going to implement the missing methods in the class `SMSFeatureExtractor`. It follows the sklearn `transformer` contract with a `fit` method and a `transform` method. 
+Here we want you to make your own transformer, but later it would be smart to use one already [included](http://scikit-learn.org/stable/data_transforms.html) with sklearn.
+
+Read the comments on the class, and get going.
+
+#### 1c) Choosing and training a classifier
+
+Ok, time to get to the machine-*learning* part.
+
+We have set up a really stupid classifier for you. It only counts the most commonly occurring label and predicts that for any given input.
+
+You can drop in any classifier you want already shipped with sklearn, such as [LinearSVC](http://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html), or you can try to implement a simple one like [k nearest neighbours](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) in place of the one we gave you.
+
+#### 1d) Evaluating the classifer. Did we separate the spam from the ham?
+
+If everything went smoothly you should see a _classification report_ and a _confusion matrix_ in the output. The scores obviously depend on how well your classifier performed.
+
+The _confusion matrix_ is the simplest to interpret. The first index tells us what label a given example had, and the second what we predicted it to be.
+`[0][0]` is the true negatives (normal messages we allowed to pass), `[1][1]` the true positives (spam we found) and so on.
+
+The _classification report_ consists of three measures for each class, and one average:
+* Precision: When we say that something is a given class, how often are we right?
+* Recall: Out of all the test examples with that given label, how often many did we correctly identify?
+* f1-score: A combination of those two scores. (2 * precision * recall / (precision + recall))
+
+As soon as these look good, at least above 0.9, you can feel confident that you have made a decent spam filter and move on to the next task.
 
 ### 2. Sentiment analysis of movie reviews
 file: [sentiment_analysis.py](tasks/sentiment_analysis.py)
