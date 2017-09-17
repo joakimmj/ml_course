@@ -1,7 +1,5 @@
 from sklearn.base import ClassifierMixin, TransformerMixin
 import numpy as np
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.svm import LinearSVC
 from sklearn.utils import shuffle
 from sklearn import metrics
 from help_functions.result_printer import print_wrong_predictions
@@ -70,8 +68,8 @@ class ExpectedValueClassifier(ClassifierMixin):
     def predict(self, X: np.ndarray):
         """
         This method predicts labels for the given features based on its training.
-        :param X: The labels of the data we want to predict.
-        :return: An vector of labels.
+        :param X: A matrix of size (m,n). The features of the data we want to predict.
+        :return: A vector of labels. Length m.
         """
         return np.asarray([self.most_frequent_class] * X.shape[0])
 
