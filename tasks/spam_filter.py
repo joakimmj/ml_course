@@ -126,7 +126,3 @@ def run_spam_filter():
     # generate classification report
     test_features = extractor.transform(test_data)
     validate_model(classifier, test_data, test_features, test_labels)
-
-
-if __name__ == '__main__':
-    run_spam_filter()

@@ -56,13 +56,6 @@ def __execute(data, labels, feature_extractor, classifier, show: int, test_size:
     __validate_model(clf, test_src, training_data, test_data, training_labels, test_labels, top=show, bitmap=bitmap)
 
 
-def execute_spam_filter(show: int = 10, test_size: float = .3, cache_data: bool = False, rows: int = -1):
-    print('-- Executing spam filter')
-    data, labels = data_retriever.load_sms(cache_data=cache_data, rows=rows)
-    __execute(data, labels, spam_filter.feature_extraction,
-              spam_filter.init_classifier, show, test_size, bitmap=False)
-
-
 def execute_number_classifier(show: int = 10, test_size: float = .3, rows: int = -1):
     print('-- Executing number classification')
     data, labels = data_retriever.load_mnist(rows)
