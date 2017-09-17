@@ -1,7 +1,7 @@
 # Course in machine learning (ML)
 A simple introduction to text classification with machine learning. The course will cover some elementary linguistic morphology techniques for extracting features, and an introduction to some classifiers.
 
-The tasks in this course will be solved in **Python 3** with the **scikit-learn** tool. 
+The tasks in this course will be solved in **Python 3** with the **scikit-learn** tool.
 
 __Tasks__:
 1. Creating a spam-filter
@@ -40,6 +40,8 @@ For choosing the right estimator we can use scikit's estimator chooser:
 Please clone (`git clone`) or download this repo before you do anything else.
 
 If you need a decent IDE for python (no IDE wars please), get the [Pycharm Community Edition](https://www.jetbrains.com/pycharm/).
+
+If you already have some of the necessary requirements please make sure they are up to date. This course was designed and tested with python 3.6. 3.5 will not work.
 
 ### Windows
 [Install Anaconda](https://www.anaconda.com/download/#download).
