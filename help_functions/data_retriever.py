@@ -6,8 +6,8 @@ from sklearn import datasets, utils
 
 REVIEW_SOURCE = './files/review_data/review_source.csv'
 REVIEW_DATA = './files/review_data/review_data_%d.sav'
-SMS_SOURCE = './files/spam_data/sms_source.csv'
-SMS_DATA = './files/spam_data/sms_data_%d.sav'
+SMS_SOURCE = './../files/spam_data/sms_source.csv'
+SMS_DATA = './../files/spam_data/sms_data_%d.sav'
 
 
 def __read_file(source, rows):
