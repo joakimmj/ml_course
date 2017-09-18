@@ -71,19 +71,19 @@ Vocabulary: `['yes', 'no']`
 Messages: `["yes no yes no", "no yes yes", "no", "no no"]`   
 Labels: `[0, 1, 1, 0]`
 
-##### Feature extraction
+#### Feature extraction
 `"yes no yes no"` &rarr; `[2, 2]`  
 `"no yes yes"` &rarr; `[2, 1]`  
 `"no"` &rarr; `[0, 1]`  
 `"no no"` &rarr; `[0, 2]`
 
-##### Fitting the linear SVM model
+#### Fitting the linear SVM model
 Since we only have to features (frequency of 'yes' and 'no'), the linear SVM only has
 two dimensions.
 
 ![Fitted SVM](files/svm_fit.png)
 
-##### Classifying
+#### Classifying
 We get the sentence `"no yes no"`, and transforms it with Bow. This results in `[1, 2]`.
 
 The prediction will then be as follows:  
