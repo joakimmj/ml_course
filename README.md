@@ -81,13 +81,13 @@ Labels: `[0, 1, 1, 0]`
 Since we only have to features (frequency of 'yes' and 'no'), the linear SVM only has
 two dimensions.
 
-![Estimator picker](files/svm_fit.png)
+![Fitted SVM](files/svm_fit.png)
 
 ##### Classifying
 We get the sentence `"no yes no"`, and transforms it with Bow. This results in `[1, 2]`
 
 As we see here:   
-![Estimator picker](files/svm_predict.png)
+![SVM Prediction](files/svm_predict.png)
 
 This sentence will get classified as `0` (ham).
 
