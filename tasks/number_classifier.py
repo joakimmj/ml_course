@@ -16,25 +16,25 @@ class BitmapFeatureExtractor(TransformerMixin):
         :param others: Stuff other modules might need.
         :return: The Transformer itself. This allows for method-chaining.
         """
-        raise NotImplementedError('You may store som relevant information about the data set here.')
+        raise NotImplementedError('b) You may store som relevant information about the data set here.')
         return self
 
     def transform(self, bitmaps, *others):
         """
         Transform the bitmaps to wanted representation.
         :param bitmaps: A list of bitmaps.
-        :param others: Stuff other scikit-learn modules might tack on, that we will ignore.
-        :return: An NxM matrix where N is the amount of text messages and M is the amount of features (words).
+        :param others: Stuff other modules might need.
+        :return: The extracted features.
         """
-        raise NotImplementedError('Return the features. See docstring for more details.')
+        raise NotImplementedError('c) Return the features. See docstring for more details.')
 
 
 def split_and_shuffle_data_set(data: np.ndarray, labels: np.ndarray, train_proportion: float=0.8):
-    raise NotImplementedError("You need to split the data.")
+    raise NotImplementedError("a) You need to split the data.")
 
 
 def train_classifier(training_features, training_labels):
-    raise NotImplementedError("Choose estimator, fit it and return it.")
+    raise NotImplementedError("d) Choose estimator (or create your own), fit it and return it.")
 
 
 def run_number_classifier():
