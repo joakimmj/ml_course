@@ -84,12 +84,12 @@ two dimensions.
 ![Fitted SVM](files/svm_fit.png)
 
 ##### Classifying
-We get the sentence `"no yes no"`, and transforms it with Bow. This results in `[1, 2]`
+We get the sentence `"no yes no"`, and transforms it with Bow. This results in `[1, 2]`.
 
-As we see here:   
+The prediction will then be as follows:  
 ![SVM Prediction](files/svm_predict.png)
 
-This sentence will get classified as `0` (ham).
+As we can easily see, this sentence will get classified as `0` (ham).
 
 ## Setup
 Please clone (`git clone`) or download this repo before you do anything else.
