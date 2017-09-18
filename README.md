@@ -47,9 +47,15 @@ There are several ways to extract these features. Some normal techniques are:
     E.g. `a, and, as, at, in, the`
 5. The **bag-of-words** (BoW) model is used to look at the frequency of each word
     in a document. All words in the corpus (text samples) form a dictionary.  
-    E.g.: The dictionary `["John", "likes", "to", "watch", "movies", "Mary", "too",
+    E.g.: The vocabulary `["John", "likes", "to", "watch", "movies", "Mary", "too",
     "also", "football", "games"]` applied to the text `John likes to watch movies.
     Mary likes movies too.` will form the vector `[1, 2, 1, 1, 2, 1, 1, 0, 0, 0]`.
+6. **n-gram** is another probabilistic model. Instead of counting the frequency of 
+    words, as in BoW, one counts sequences of *n* words.   
+    E.g.: If one would like to extract the vocabulary from `Cats dance funny on 
+    the Internet.`, it would result in:  
+    2-gram: `['Cats dance', 'dance funny', 'funny on', 'on the', 'the Internet']`   
+    3-gram: `['Cats dance funny', 'dance funny on', ' funny on the', 'on the Internet']`
 
 ### Choosing the right estimator
 We want to make a model that predicts a class for different text examples. For
@@ -57,6 +63,33 @@ simplicity we have chosen data sets with binary classification (e.g. spam/ham).
 
 For choosing the right estimator we can use scikit's estimator chooser:
 ![Estimator picker](files/ml_map.png)
+
+
+### Example: BoW and Linear SVM
+
+Vocabulary: `['yes', 'no']`   
+Messages: `["yes no yes no", "no yes yes", "no", "no no"]`   
+Labels: `[0, 1, 1, 0]`
+
+##### Feature extraction
+`"yes no yes no"` &rarr; `[2, 2]`  
+`"no yes yes"` &rarr; `[2, 1]`  
+`"no"` &rarr; `[0, 1]`  
+`"no no"` &rarr; `[0, 2]`
+
+##### Fitting the linear SVM model
+Since we only have to features (frequency of 'yes' and 'no'), the linear SVM only has
+two dimensions.
+
+![Estimator picker](files/svm_fit.png)
+
+##### Classifying
+We get the sentence `"no yes no"`, and transforms it with Bow. This results in `[1, 2]`
+
+As we see here:   
+![Estimator picker](files/svm_predict.png)
+
+This sentence will get classified as `0` (ham).
 
 ## Setup
 Please clone (`git clone`) or download this repo before you do anything else.
