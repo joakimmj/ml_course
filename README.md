@@ -160,6 +160,17 @@ important things to keep in mind here:
   no added magic. This is a word bag model, and the predictor will therefore
   only be able to infer things from what words are present, not the structure of
   the sentences themselves.
+  
+A boolean vectorizer works by creating a vector for each document describing what words are present.
+For instance: given the training documents: ['a b c', 'c d'] and the test document ['a d e'] we want to transform them 
+like so:
+
+| Document  | Vector [a, b, c, d]   | Train?
+|'a b c'    |[1, 1, 1, 0]           | Yes
+|'c d'      |[0, 0, 1, 1]           | Yes
+|'a d e'    |[1, 0, 1, 0]           | No
+
+There is no 'e' in the output vector because the transformer is not shown the test data when it is fitted.
 
 In order to complete this task we are going to implement the missing methods in
 the class `SMSFeatureExtractor`. It follows the sklearn `transformer` contract
@@ -167,7 +178,17 @@ with a `fit` method and a `transform` method. Here we want you to make your own
 transformer, but later it would be smart to use one already
 [included](http://scikit-learn.org/stable/data_transforms.html) with sklearn.
 
-Read the comments on the class, and get going.
+
+You should start with the `fit` method, and then tackle the `transform`.
+
+The goal of the `fit` method is to prepare the transformer so that it is ready to `transform` any given document.
+Here, it would be useful to store a representation of all the words in the data-set. We recommend trying a simple sorted
+list of words. The `string.split()` method could be useful here.
+
+The `transform` method should take in the string you created and create a vector like the one you can see in the table above.
+
+A good place to start is to loop over the words in the vocabulary we saved in `fit` and adding a 1 to a list if it is
+present in the string, and a 0 if it is not.
 
 #### 1c) Choosing and training a classifier
 

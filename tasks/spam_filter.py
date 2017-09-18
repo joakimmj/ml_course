@@ -19,8 +19,8 @@ class SMSFeatureExtractor(TransformerMixin):
     def fit(self, documents: iter, *others):
         """
         The goal of this method is to do review the data and prepare for any transformation.
-        For this task we are going to make a simple word bag model, so we have to store the amount
-        of available words.
+        For this task we are going to make a word bag model. Because the fit method prepares a transformer, so that it
+        can transform any given data, you should store the available words.
         :param documents: A list of text messages.
         :param others: Stuff other scikit-learn modules might tack on, that we will ignore.
         :return: The Transformer itself. This allows for method-chaining.
@@ -31,7 +31,7 @@ class SMSFeatureExtractor(TransformerMixin):
     def transform(self, documents, *others):
         """
         This method is where we do the feature extraction. It is called transform because we are
-        transforming the data from one representation to another.
+        transforming the data from one representation to another. See the readme for an input/output table.
         :param documents:  A list of text messages.
         :param others: Stuff other scikit-learn modules might tack on, that we will ignore.
         :return: An NxM matrix where N is the amount of text messages and M is the amount of features (words).
