@@ -38,7 +38,7 @@ def train_classifier(training_features, training_labels):
 
 
 def run_number_classifier():
-    rows = -1  # -1 -> retrieve complete set.
+    rows = -1  # -1 means retrieving complete set. When testing, set lower for faster training (e.g. 5000).
     print('-- Executing number classification')
 
     print('Loading data...')
