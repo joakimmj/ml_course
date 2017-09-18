@@ -277,6 +277,9 @@ get printed the wrongly classified numbers.
 As seen here:   
 ![Bitmap](files/bitmap_example.png)
 
+You can then try to optimize your solution. The steps closely resemble 
+the steps in main task 1.
+
 #### a) Splitting the data
 
 In this task we want to split the data set into training and test set. 
