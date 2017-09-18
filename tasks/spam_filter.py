@@ -1,11 +1,7 @@
 from sklearn.base import ClassifierMixin, TransformerMixin
 import numpy as np
-from sklearn.utils import shuffle
-from sklearn import metrics
-from help_functions.result_printer import print_wrong_predictions
-
-
 from help_functions import data_retriever
+from help_functions.validate_classifier import validate_model
 
 
 class SMSFeatureExtractor(TransformerMixin):
@@ -80,24 +76,6 @@ def split_and_shuffle_data_set(data: np.ndarray, labels: np.ndarray, train_propo
 
 def train_classifier(training_features, training_labels):
     return ExpectedValueClassifier().fit(training_features, training_labels)
-
-
-def validate_model(clf, test_src: iter, test_features: iter, test_labels: iter):
-
-    print('Testing classifier...')
-    predictions = clf.predict(test_features)
-
-    classification_report = metrics.classification_report(test_labels, predictions)
-    confusion_matrix = metrics.confusion_matrix(test_labels, predictions)
-
-    f1_score = metrics.f1_score(test_labels, predictions)
-    precision = metrics.precision_score(test_labels, predictions)
-    recall = metrics.recall_score(test_labels, predictions)
-
-    print('Classification report:\n%s\n\nConfusion matrix:\n%s\n\nF-score: %.2f\nPrecision: %.2f\nRecall: %.2f\n'
-          % (classification_report, confusion_matrix, f1_score, precision, recall))
-
-    print_wrong_predictions(test_src, predictions, test_labels, 5, False)
 
 
 def run_spam_filter():

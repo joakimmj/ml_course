@@ -12,7 +12,7 @@ SMS_DATA = './files/spam_data/sms_data_%d.sav'
 
 def __read_file(source, rows):
     data_set = []
-    with open(source, 'r') as csv_file:
+    with open(source, 'r', encoding='utf8') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         csv_reader.__next__()
 

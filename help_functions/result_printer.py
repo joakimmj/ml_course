@@ -26,7 +26,7 @@ def __print_bitmap(bitmap: iter, label, prediction, width: int = 28, height: int
 
 def print_wrong_predictions(src_data: iter, predictions: iter, labels: iter, top: int, bitmap: bool = False):
     """
-    Plots list of bitmaps.
+    Print/plot wrongly predicted results.
     :param src_data: iter
         2d-array with source data (if bitmap=True it is bitmaps represented by 1d-arrays).
     :param predictions: iter
