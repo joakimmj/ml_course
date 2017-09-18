@@ -12,7 +12,7 @@ class SMSFeatureExtractor(TransformerMixin):
     """
     We are going to make a Transformer.
     Transformers are generally used for two things:
-        1. Extract features from raw data (such as a list of smses).
+        1. Extract features from raw data (such as a list of SMSes).
         2. Transform a feature set into another feature set.
     """
 
@@ -22,7 +22,7 @@ class SMSFeatureExtractor(TransformerMixin):
         For this task we are going to make a simple word bag model, so we have to store the amount
         of available words.
         :param documents: A list of text messages.
-        :param *others: Stuff other scikit-learn modules might tack on, that we will ignore.
+        :param others: Stuff other scikit-learn modules might tack on, that we will ignore.
         :return: The Transformer itself. This allows for method-chaining.
         """
         raise NotImplementedError('You should store all the distinct words here.')
@@ -33,7 +33,7 @@ class SMSFeatureExtractor(TransformerMixin):
         This method is where we do the feature extraction. It is called transform because we are
         transforming the data from one representation to another.
         :param documents:  A list of text messages.
-        :param y: Stuff other scikit-learn modules might tack on, that we will ignore.
+        :param others: Stuff other scikit-learn modules might tack on, that we will ignore.
         :return: An NxM matrix where N is the amount of text messages and M is the amount of features (words).
         """
         raise NotImplementedError('Return the features. See docstring for more details.')
@@ -112,6 +112,7 @@ def run_spam_filter():
     # fit the transformer
     extractor = SMSFeatureExtractor()
     extractor.fit(training_data)
+
     # extract the features from the test data
     training_features = extractor.transform(training_data)
 
