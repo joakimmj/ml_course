@@ -1,4 +1,4 @@
-from help_functions import validate_classifier
+from tasks.number_classifier import run_number_classifier
 
 """
 Parameters
@@ -10,4 +10,4 @@ rows: int
 """
 
 if __name__ == '__main__':
-    validate_classifier.execute_number_classifier(show=10, rows=5000)
+    run_number_classifier()
