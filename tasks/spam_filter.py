@@ -75,10 +75,7 @@ class ExpectedValueClassifier(ClassifierMixin):
 
 
 def split_and_shuffle_data_set(data: np.ndarray, labels: np.ndarray, train_proportion: float=0.8):
-    # TODO remove solution
-    split = int(data.shape[0] * train_proportion)
-    data_shuffled, labels_shuffled = shuffle(data, labels)
-    return data_shuffled[:split], labels_shuffled[:split], data_shuffled[split:], labels_shuffled[split:]
+    raise NotImplementedError("You need to split the data! Look at the powerpoint or raise your hand if you are stuck :)")
 
 
 def train_classifier(training_features, training_labels):
