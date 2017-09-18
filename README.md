@@ -126,9 +126,10 @@ Have a look at the data in the [sms csv file.](files/spam_data/sms_source.csv),
 can you identify some words that occur more often in the spam? Do not click any
 links in the text. They are spam, and may be bad for your health.
 
-Spam | SMS -------- |
-----------------------------------------------------------------------------------
-0 | Fair enough, ... 1 | Did you hear about ...
+Spam | SMS
+---- | ----------------------
+0    | Fair enough, ... 
+1    | Did you hear about ...
 
 #### 1a) Loading and splitting the data.
 
@@ -235,9 +236,10 @@ __Data set__:
 You can have a look at the data in the [review csv
 file.](files/review_data/review_source.csv).
 
-Positive | Rating | Review -------- | ------- |
-------------------------------------------------------------------------- 1 | 10
-| A nicely done thriller with plenty of ... 0 | 2 | This film just goes around in circles ...
+Positive | Rating | Review 
+-------- | ------ | ----------------------------------------- 
+1        | 10     | A nicely done thriller with plenty of ... 
+0        | 2      | This film just goes around in circles ...
 
 
 ## Extra tasks
