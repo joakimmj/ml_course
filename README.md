@@ -271,16 +271,27 @@ Execute the `extra.py` script with `python extra.py`.
 file: [number_classifier.py](tasks/number_classifier.py)
 
 In this extra task we want to classify bitmaps to numbers. Each bitmap is
-represented by a 1d-array.
- 
-The task is to implement the two functions:
-```python
-def feature_extraction(data_set: iter) -> iter:
-def init_classifier():
-```
-
-When running the `extra.py` script, you will get printed the wrongly classified
-numbers.
+represented by a 1d-array. When you are done with all subtasks, you will 
+get printed the wrongly classified numbers.
 
 As seen here:   
 ![Bitmap](files/bitmap_example.png)
+
+#### a) Splitting the data
+
+In this task we want to split the data set into training and test set. 
+> **Note:** return data in correct order.
+
+#### b) Fit feature extractor
+
+If you want to store some relevant information about the data set do 
+that here, if not; just return `self`.
+
+#### c) Transform data
+ 
+Transform the bitmaps to wanted representation, and return a numpy array.
+
+#### d) Training estimator
+
+Choose an estimator (or make your own), and train it with the transformed
+training data.
