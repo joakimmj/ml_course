@@ -166,10 +166,11 @@ A boolean vectorizer works by creating a vector for each document describing wha
 For instance: given the training documents: ['a b c', 'c d'] and the test document ['a d e'] we want to transform them 
 like so:
 
-| Document  | Vector [a, b, c, d]   | Train?
-|'a b c'    |[1, 1, 1, 0]           | Yes
-|'c d'      |[0, 0, 1, 1]           | Yes
-|'a d e'    |[1, 0, 1, 0]           | No
+Document  | Vector [a, b, c, d]   | Train?
+--------- | --------------------- | ---------
+'a b c'   | [1, 1, 1, 0]          | Yes
+'c d'     | [0, 0, 1, 1]          | Yes
+'a d e'   | [1, 0, 1, 0]          | No
 
 There is no 'e' in the output vector because the transformer is not shown the test data when it is fitted.
 
