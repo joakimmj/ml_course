@@ -296,6 +296,8 @@ Positive | Rating | Review
 1        | 10     | A nicely done thriller with plenty of ... 
 0        | 2      | This film just goes around in circles ...
 
+As soon as you are happy with the results (this is very individual, but try to at
+least get below 3) you can move on to the next task :)
 
 ## Extra tasks
 Execute the `extra.py` script with `python extra.py`.
@@ -331,3 +333,10 @@ Transform the bitmaps to wanted representation, and return a numpy array.
 
 Choose an estimator (or make your own), and train it with the transformed
 training data.
+
+## Finishing notes
+Awesome! You are through the tasks. If there is still time left in the course
+raise your hand and ask for some more to do.
+
+If you prefer not talking to us, go back to task 1 and implement the KNN
+estimator yourself, or keep improving the score in task 2. 
